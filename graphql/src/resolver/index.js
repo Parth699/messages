@@ -11,6 +11,7 @@ const replyLoader = new DataLoader(async (keys) => {
 
     // const res = keys.map(async(key) => await Message.find({replyTo: key}));
     const res = await Message.find({replyTo: {$in: keys}});
+    console.log('RRRR',res);
     
     const result = keys.map((key)=> res.filter((r) => String(r.replyTo) === String(key)));
 
