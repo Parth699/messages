@@ -1,8 +1,6 @@
-import { gql } from "apollo-server";
+import { buildSchema } from "graphql";
 
-
-const typeDefs = gql`
-
+const messageGQLSchema = buildSchema(`#graphql
     input MessageInput {
         userId: String!
         content: String!
@@ -27,6 +25,6 @@ const typeDefs = gql`
         addMessage(message: MessageInput!): Message!
         # upvoteMessage()
     }
-`;
+`);
 
-export default typeDefs;
+export default messageGQLSchema;
